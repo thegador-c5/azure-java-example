@@ -72,7 +72,22 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>releases</name>
+			<url>${nexus.url}/repository/cie-dis-products-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>snapshots</name>
+			<url>${nexus.url}/repository/cie-dis-products-snapshots</url>
+		</snapshotRepository>
+		<site>
+			<id>site</id>
+			<url>dav:https://nexus.pjm.com/nexus/repository/cie-dis-products-site/nextgen</url>
+		</site>
+	</distributionManagement>
   
 
 </project>
