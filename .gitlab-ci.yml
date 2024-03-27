@@ -34,7 +34,7 @@ build_infra:
     script:
         - echo "hello jboss ${GIT_URL} ${CI_PROJECT_ID} ${ENV} ${APP_NAME} ${CI_PROJECT_DIR}"
         - echo "hello jboss ${TF_HTTP_ADDRESS} ${TF_HTTP_LOCK_ADDRESS}"
-        - ls $app_name/deployment/
+        - ls deployment/
         - cd /workdir/terraform/jboss-app
         - pip3 install az.cli
         - terraform init
