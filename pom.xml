@@ -27,6 +27,7 @@
         <version>7.4.0.GA</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+    <groupId>com.pjm</groupId>
     <artifactId>helloworld-rs</artifactId>
     <packaging>war</packaging>
     <name>Quickstart: helloworld-rs</name>
