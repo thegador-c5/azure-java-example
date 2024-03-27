@@ -1,0 +1,26 @@
+include:
+  - project: 'pjm-gitlab-ci-templates/maven'
+    ref: 'master'
+    file: '/templates/gitlab-ci-maven.yml'
+
+variables:
+    NEXUS_PUBLIC_REGISTRY: "nexus.pjm.com:441"
+    GIT_URL : "https://git.pjm.com/api/v4/projects/"
+    app_name: "gaspipe"
+    environment: "TST"
+    TF_HTTP_ADDRESS: "${GIT_URL}/${CI_PROJECT_ID}/terraform/state/${environment}-${app_name}"
+    TF_HTTP_LOCK_ADDRESS: "${TF_HTTP_ADDRESS}/lock"
+    TF_HTTP_UNLOCK_ADDRESS: "${TF_HTTP_ADDRESS}/lock"
+    TF_HTTP_UNLOCK_METHOD: "DELETE"
+    NO_PROXY: ".pjm.com,nexus.pjm.com,app-gaspipe-tst-eu2.scm.azurewebsites.net"
+    HTTPS_PROXY: "http://prx20vip.pjm.com:8080"    
+    AZURE_RESOURCE_GROUP:  "rg-tools-test-eu2"
+    app_service_plan: "asp-tools-test-eu2-tools"
+    private_ip: "172.21.98.4"
+    auth_client_id: "webexclient"
+    client_secret_setting_name: "forgerock_AUTHENTICATION_SECRET"
+    DEPLOYMENT_PATH: "${CI_PROJECT_DIR}/deployment"
+    openid_configuration_endpoint: "https://ssotrain.pjm.com/openam/oauth2/.well-known/openid-configuration"
+    MAVEN_CLI_OPTS: '--batch-mode --errors --fail-at-end --show-version -Dpjm.lifecycle.stage=build -Dmaven.test.skip=true'
+    MAVEN_BUILD_ARGS: "clean deploy"
+    MVN_FORBID_SNAPSHOT_DEPENDENCIES_DISABLED: "true"
