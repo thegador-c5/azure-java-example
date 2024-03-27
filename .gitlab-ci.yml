@@ -6,21 +6,47 @@ include:
 variables:
     NEXUS_PUBLIC_REGISTRY: "nexus.pjm.com:441"
     GIT_URL : "https://git.pjm.com/api/v4/projects/"
-    app_name: "gaspipe"
+    app_name: "helloworld-rs"
     environment: "TST"
     TF_HTTP_ADDRESS: "${GIT_URL}/${CI_PROJECT_ID}/terraform/state/${environment}-${app_name}"
     TF_HTTP_LOCK_ADDRESS: "${TF_HTTP_ADDRESS}/lock"
     TF_HTTP_UNLOCK_ADDRESS: "${TF_HTTP_ADDRESS}/lock"
     TF_HTTP_UNLOCK_METHOD: "DELETE"
-    NO_PROXY: ".pjm.com,nexus.pjm.com,app-gaspipe-tst-eu2.scm.azurewebsites.net"
+    NO_PROXY: ".pjm.com,nexus.pjm.com,app-helloworld-rs-tst-eu2.scm.azurewebsites.net"
     HTTPS_PROXY: "http://prx20vip.pjm.com:8080"    
     AZURE_RESOURCE_GROUP:  "rg-tools-test-eu2"
     app_service_plan: "asp-tools-test-eu2-tools"
-    private_ip: "172.21.98.4"
+    private_ip: "172.21.98.8"
     auth_client_id: "webexclient"
-    client_secret_setting_name: "forgerock_AUTHENTICATION_SECRET"
+    client_secret_setting_name: "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
     DEPLOYMENT_PATH: "${CI_PROJECT_DIR}/deployment"
     openid_configuration_endpoint: "https://ssotrain.pjm.com/openam/oauth2/.well-known/openid-configuration"
     MAVEN_CLI_OPTS: '--batch-mode --errors --fail-at-end --show-version -Dpjm.lifecycle.stage=build -Dmaven.test.skip=true'
     MAVEN_BUILD_ARGS: "clean deploy"
     MVN_FORBID_SNAPSHOT_DEPENDENCIES_DISABLED: "true"
+
+stages:
+    - build
+    - test
+    
+build:
+    script:
+        - echo "building the app"
+
+build_infra:
+    stage: test
+    image: $NEXUS_PUBLIC_REGISTRY/pjm/devops/az-jboss-eap-deploy:master
+    script:
+        - echo "hello jboss ${GIT_URL} ${CI_PROJECT_ID} ${ENV} ${APP_NAME} ${CI_PROJECT_DIR}"
+        - echo "hello jboss ${TF_HTTP_ADDRESS} ${TF_HTTP_LOCK_ADDRESS}"
+        - ls $app_name/deployment/
+        - cd /workdir/terraform/jboss-app
+        - pip3 install az.cli
+        - terraform init
+        - terraform apply --auto-approve -var resource_group_name="${AZURE_RESOURCE_GROUP}" -var app_service_plan="${app_service_plan}" -var name="${app_name}" -var environment="${environment}" -var static_ip="${private_ip}" -var auth_client_id="{auth_client_id}" -var client_secret_setting_name="${client_secret_setting_name}" -var app_type="internal" -var openid_configuration_endpoint=""
+        - cd /workdir
+        - az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
+        - python3 azure-deployments.py buildSnapshotApp
+
+    tags:
+        - ac1prod
