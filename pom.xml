@@ -30,6 +30,7 @@
     <groupId>com.pjm</groupId>
     <artifactId>helloworld-rs</artifactId>
     <packaging>war</packaging>
+    <version>0.1-SNAPSHOT</version>
     <name>Quickstart: helloworld-rs</name>
     <description>A simple Hello World project that uses JAX-RS</description>
 
