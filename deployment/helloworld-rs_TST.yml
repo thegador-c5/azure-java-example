@@ -1,0 +1,33 @@
+---
+app_name: "helloworld-rs"
+
+app_url:
+    - "https://gaspipe.test.pjm.com"
+context: "gaspipe"
+
+datasource:      
+
+war:
+     "https://nexus.pjm.com/nexus/repository/cie-dis-products-snapshots/com/pjm/gaspipe/4.0.0-Azure-SNAPSHOT/gaspipe-4.0.0-Azure-20240323.000926-11.war":
+     
+system_properties:     
+     com.pjm.security.filter: "com.pjm.jboss.filter.AzureFilter"
+     com.pjm.security.service.application.access.url: "https://ssotrain.pjm.com/ssows/rest/secure/applications"
+     com.pjm.security.service.application.messages.url: "https://ssotrain.pjm.com/ssows/rest/secure/messages"
+     com.pjm.security.service.user.url: "https://ssotrain.pjm.com/ssows/rest/secure/user"
+     com.pjm.web.security.logout.url: "https://ssotrain.pjm.com/access/XUI/?goto=https://gaspipe.test.pjm.com/gaspipe/pages/public/logout.jsf#logout/"
+     gaspipe.email.cc: "gene.mcvey@pjm.com"
+     gaspipe.email.forcemajeure.to: "michael.murphy@pjm.com"
+     gaspipe.quartz.repeat.repeatInterval: "240"
+     http.nonProxyHosts: "localhost|openamtrain.pjm.com|ssotrain.pjm.com"
+     http.proxyHost: "prx20vip.pjm.com"
+     http.proxyPort: "8080"
+     https.nonProxyHosts: "localhost|openamtrain.pjm.com|ssotrain.pjm.com"
+     https.proxyHost: "prx20vip.pjm.com"
+     https.proxyPort: "8080"
+     openam.agents.bootstrap.dir: "/opt/jboss/j2ee_agents/jboss_v7_agent/agent_gaspipe/config"
+     root.redirect.url: "/gaspipe/pages/secure/"
+     com.pjm.log.directory: "/opt/jbosslogs"
+     com.pjm.environment: "TST"
+     etools.home.url: "https://toolstrain.pjm.com/tools"
+     com.pjm.root.log.directory: "gaspipe"

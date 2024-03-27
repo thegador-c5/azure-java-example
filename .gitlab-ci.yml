@@ -1,8 +1,3 @@
-include:
-  - project: 'pjm-gitlab-ci-templates/maven'
-    ref: 'master'
-    file: '/templates/gitlab-ci-maven.yml'
-
 variables:
     NEXUS_PUBLIC_REGISTRY: "nexus.pjm.com:441"
     GIT_URL : "https://git.pjm.com/api/v4/projects/"
