@@ -1,6 +1,6 @@
-#Wed Mar 27 14:22:46 EDT 2024
-C\:\\Personal\\tools\\jboss-helloworld\\helloworld-rs\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\HelloService.java=1696318106000
-C\:\\Personal\\tools\\jboss-helloworld\\helloworld-rs\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\HelloWorld.java=1711563765159
-C\:\\Personal\\tools\\jboss-helloworld\\helloworld-rs\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\JAXActivator.java=1696318106000
-configuration*?=083218E41E56369B74BDF2D9D93A94D5433D83D2
+#Thu Mar 28 22:08:56 EDT 2024
+configuration*?=4268E9919181AD0ACDBA4735B9241D766AAB95B1
 module-resource*?\:/wildfly-checkstyle/suppressions.xml=DD3FD5987C62C3034A4613F83C42B24683BCFC2E
+C\:\\Personal\\projects\\azure-java-example\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\HelloService.java=1711568207359
+C\:\\Personal\\projects\\azure-java-example\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\JAXActivator.java=1711568207361
+C\:\\Personal\\projects\\azure-java-example\\src\\main\\java\\org\\jboss\\as\\quickstarts\\rshelloworld\\HelloWorld.java=1711571688162

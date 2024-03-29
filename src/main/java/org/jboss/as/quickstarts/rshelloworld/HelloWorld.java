@@ -43,7 +43,7 @@ public class HelloWorld {
    @Produces({ "application/json" })
    public String getHelloWorldJSON() {
       final boolean result = req.isUserInRole("NEXTGEN_API_WRITE");
-      return "{\"result: isUserInRole(NEXTGEN_API_WRITE)\":\"" + result + "\"}";
+      return "req.getUserPrincipal: " + req.getUserPrincipal();
    }
 
    @GET

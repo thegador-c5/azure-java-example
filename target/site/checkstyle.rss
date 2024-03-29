@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2024 JBoss by Red Hat</copyright>
     <item>
-      <title>File: 1,
+      <title>File: 3,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -46,7 +46,35 @@ under the License.
           <tbody>
                           <tr>
                 <td>
+                  <a href="https://developers.redhat.com/quickstarts/eap/helloworld-rs//checkstyle.html#org.jboss.as.quickstarts.rshelloworld.HelloService.java">org/jboss/as/quickstarts/rshelloworld/HelloService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://developers.redhat.com/quickstarts/eap/helloworld-rs//checkstyle.html#org.jboss.as.quickstarts.rshelloworld.HelloWorld.java">org/jboss/as/quickstarts/rshelloworld/HelloWorld.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://developers.redhat.com/quickstarts/eap/helloworld-rs//checkstyle.html#org.jboss.as.quickstarts.rshelloworld.JAXActivator.java">org/jboss/as/quickstarts/rshelloworld/JAXActivator.java</a>
                 </td>
                 <td>
                   0
