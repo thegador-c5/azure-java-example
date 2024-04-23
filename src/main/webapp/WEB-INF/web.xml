@@ -15,7 +15,7 @@
 	<filter>
 		<display-name>Agent</display-name>
 		<filter-name>Agent</filter-name>
-		<filter-class>com.pjm.jboss.filter.AzureFilter</filter-class>
+		<filter-class>com.microsoft.azure.appservice.EasyAuthFilter</filter-class>
 	</filter> 
 	
 	<filter-mapping>  
@@ -28,3 +28,4 @@
 	</filter-mapping> 
 
 </web-app>
+

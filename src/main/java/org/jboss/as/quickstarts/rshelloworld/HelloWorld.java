@@ -43,6 +43,11 @@ public class HelloWorld {
    @Produces({ "application/json" })
    public String getHelloWorldJSON() {
       final boolean result = req.isUserInRole("NEXTGEN_API_WRITE");
+      System.out.println(req.getHeader("X-MS-CLIENT-PRINCIPAL"));
+      System.out.println(req.getHeader("X-MS-CLIENT-PRINCIPAL-NAME"));
+      System.out.println(System.getenv("WEBSITE_SKIP_FILTERS"));
+      System.out.println(System.getenv("WEBSITE_AUTH_SKIP_PRINCIPAL"));
+      System.out.println(System.getenv("WEBSITE_AUTH_ENABLED"));
       return "req.getUserPrincipal: " + req.getUserPrincipal();
    }
 
